@@ -7,15 +7,31 @@ defmodule ChannelLock.Mixfile do
             version: "0.1.0",
             elixir: "~> 1.5",
             start_permanent: Mix.env == :prod,
-            deps: []
+            description: description(),
+            package: package(),
+            deps: [],
+            name: "ChannelLock",
+            source_url: "https://github.com/aaruel/channel_lock"
         ]
     end
 
-    # Run "mix help compile.app" to learn about applications.
     def application do
         [
             extra_applications: [:logger],
             mod: {ChannelLock, []}
         ]
+    end
+
+    defp package do
+        [
+            files: ["lib", "mix.exs", "LICENSE", "README.md"],
+            maintainers: ["aaruel"],
+            licenses: ["MIT"],
+            links: %{"GitHub" => "https://github.com/aaruel/channel_lock"}
+        ]
+    end
+
+    defp description do
+        "Enables the ability to create channels with process synchronization"
     end
 end

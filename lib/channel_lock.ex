@@ -126,7 +126,7 @@ defmodule ChannelLock.Server do
     end
 
     # Clear all locks map
-    def handle_cast({:clear}, locks) do
+    def handle_cast({:clear}, _locks) do
         {:noreply, %{}}
     end
 end
