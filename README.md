@@ -1,6 +1,6 @@
 # ChannelLock
 
-**TODO: Add description**
+Enables the ability to create channels with process synchronization
 
 ## Installation
 
@@ -9,9 +9,9 @@ by adding `channel_lock` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [
-    {:channel_lock, "~> 0.1.0"}
-  ]
+    [
+        {:channel_lock, "~> 0.1.0"}
+    ]
 end
 ```
 

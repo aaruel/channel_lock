@@ -3,7 +3,7 @@ defmodule ChannelLockTest do
     doctest ChannelLock
 
     test "Basic blocking task" do
-        ret = ChannelLock.push(1, fn -> 
+        ret = ChannelLock.request(1, fn -> 
             :timer.sleep(100)
             "return"
         end)
@@ -12,19 +12,19 @@ defmodule ChannelLockTest do
 
     test "Different timed multiple tasks" do
         a = Task.async(fn -> 
-            ChannelLock.push(2, fn -> 
+            ChannelLock.request(2, fn -> 
                 :timer.sleep(1000)
                 1 |> IO.inspect
             end)
         end)
         b = Task.async(fn -> 
-            ChannelLock.push(2, fn -> 
+            ChannelLock.request(2, fn -> 
                 :timer.sleep(100)
                 2 |> IO.inspect
             end)
         end)
         c = Task.async(fn -> 
-            ChannelLock.push(2, fn -> 
+            ChannelLock.request(2, fn -> 
                 :timer.sleep(500)
                 3 |> IO.inspect
             end)
@@ -41,13 +41,13 @@ defmodule ChannelLockTest do
             ret |> IO.inspect
         end
         a = Task.async(fn -> 
-            ChannelLock.push(2, fn -> func.(1) end)
+            ChannelLock.request(2, fn -> func.(1) end)
         end)
         b = Task.async(fn -> 
-            ChannelLock.push(2, fn -> func.(2) end)
+            ChannelLock.request(2, fn -> func.(2) end)
         end)
         c = Task.async(fn -> 
-            ChannelLock.push(2, fn -> func.(3) end)
+            ChannelLock.request(2, fn -> func.(3) end)
         end)
         t = [
             a, b, c
