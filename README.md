@@ -1,5 +1,8 @@
 # ChannelLock
 
+[![Hex.pm](https://img.shields.io/hexpm/v/channel_lock.svg)](https://hex.pm/packages/channel_lock)
+[![API Docs](https://img.shields.io/badge/api-docs-yellow.svg?style=flat)](https://hexdocs.pm/channel_lock)
+
 Enables the ability to create channels with process synchronization
 
 ## Installation
@@ -13,6 +16,3 @@ def deps do
     ]
 end
 ```
-
-The docs can be found at [https://hexdocs.pm/channel_lock](https://hexdocs.pm/channel_lock).
-
