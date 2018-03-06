@@ -9,7 +9,7 @@ defmodule ChannelLock.Mixfile do
             start_permanent: Mix.env == :prod,
             description: description(),
             package: package(),
-            deps: [],
+            deps: [{:ex_doc, ">= 0.0.0", only: :dev}],
             name: "ChannelLock",
             source_url: "https://github.com/aaruel/channel_lock"
         ]
